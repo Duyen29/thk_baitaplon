@@ -15,8 +15,7 @@ namespace Bot1
     {
 
         public TelegramBotClient botClient;
-        //HoiDataBase HoiData;
-        //6052997336
+        
         public long chatId = 6052997336; // Mk fix trước 1 cái chat id là tài khuản của mk! -> cái này liên quan đến việc nhúng ở bên app
 
         int logCounter = 0;
@@ -49,8 +48,7 @@ namespace Bot1
         public botF()
         {
             InitializeComponent();
-            //HoiData = new HoiDataBase();
-            // Thằng QuanLyBanHanglv1_bot
+            
             string token = "6268107740:AAHvx7IoXKwYl2h8K40tXN0Gc8y5A0xEPik";
 
             //Console.WriteLine("my token=" + token);
@@ -79,7 +77,7 @@ namespace Bot1
 
             Task<User> me = botClient.GetMeAsync(); // Được sử dụng để gửi một yêu cầu đến Telegram API để lấy thông tin về bot hiện tại.
             // => Nắm đầu thằng bot rồi.
-            AddLog($"Thằng bot: @{me.Result.Username}");
+            AddLog($"Bot của Duyên: @{me.Result.Username}");
 
             //async lập trình bất đồng bộ
             // Trả về đối tượng Task ?? 
@@ -138,17 +136,17 @@ namespace Bot1
                 // 1. khi hỏi về an Cốp:
                 if (messLow.StartsWith("gv"))
                 {
-                    reply = "FeedBack Giáo viên:🥲 Môn học lập trình Windows thầy Đỗ Duy Cốp. Giảng quá xá là HAY!😍😍";
+                    reply = "FeedBack Giáo viên:🥲 Môn học lập trình Windows thầy Đỗ Duy Cốp. Giảng rất hay!😍😍";
                 }
                 else if (messLow.StartsWith("dh "))
                 {
                     string soHD = messageText.Substring(3);
-                    //reply = HoiData.baoMotHoaDon(soHD, "");
+                    
                 }
                 else if (messLow.StartsWith("kh "))
                 {
                     string tenKH = messageText.Substring(3);
-                    //reply = HoiData.baoMotKhachHang(tenKH);
+                    
                 }
                 else if (messLow.StartsWith("sao roi"))
                 {
@@ -157,16 +155,12 @@ namespace Bot1
                     int ngay = Convert.ToInt32(NTN.Day.ToString());
                     int thang = Convert.ToInt32(NTN.Month.ToString());
                     int nam = Convert.ToInt32(NTN.Year.ToString());
-                    //reply = HoiData.baoMotNgay(ngay, thang, nam);
+                    
                 }
-                //else if (messLow.StartsWith("tk "))
-                //{
-                //    string tenKH = messageText.Substring(3);
-                //    reply = HoiData.baoMotKhachHang(tenKH);
-                //}
+                
                 else // Nếu k phải là thằng nào đặc biệt thì => hát cho Pạn nghe
                 {
-                    reply = "🤡Tôi Bảo bạn này: " + messageText;
+                    reply = "🤡Tôi đây: " + messageText;
                 }
 
 
@@ -195,15 +189,8 @@ namespace Bot1
             // Đây là hàm sử lý lỗi -> có lỗi nó chui vào hàm này
             Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
             {
-                //var ErrorMessage = exception switch
-                //{
-                //    ApiRequestException apiRequestException
-                //        => $"Telegram API Error:\n[{apiRequestException.ErrorCode}]\n LỖI NHƯ SAU:\n{apiRequestException.Message}",
-                //     => exception.ToString()
-                //};
-
-                //AddLog(ErrorMessage);
-                Console.WriteLine("Looi roi anh ouwi");
+                
+                Console.WriteLine("Lỗi rồi bạn ơi");
                 AddLog("----       Lỗi rồi -> K rõ lỗi j  -----------");
                 return Task.CompletedTask;
             }

@@ -28,58 +28,76 @@ namespace LIENKET_CSDL
         SqlCommand thuchien;
         SqlDataReader docdulieu;
         DataTable dt;
-        
+
 
         String sohd;
         private void hoadon_Load_1(object sender, EventArgs e)
         {
-            ketnoi = new SqlConnection(chuoiketnoi);
-            hienthi();
+
         }
 
-        public void hienthi()
+        public void hienthiHoaDon()
         {
+            try
+            {
 
-            ketnoi.Open();
-            sql = @"select SOHD,MAHANG,NGAYTHANG,MAKH from HD_BANHANG";
-            thuchien = new SqlCommand(sql, ketnoi);
-            docdulieu = thuchien.ExecuteReader();
-
-            dataGridView1 = new DataGridView();
-            dataGridView1.DataSource = docdulieu;
-            dataGridView1.DataSource = dataGridView1;
+                ketnoi = new SqlConnection(chuoiketnoi);
+                ketnoi.Open();
+                sql = @"select * from HD_BANHANG";
+                thuchien = new SqlCommand();
+                thuchien.Connection = ketnoi;
+                thuchien.CommandText = sql;
+                thuchien.CommandType = CommandType.Text;
+                docdulieu = thuchien.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(docdulieu);
+                dgvHoaDon.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi đọc dữ liệu ban hang");
+            }
             docdulieu.Close();
             ketnoi.Close();
         }
 
-        private void loatHD_BANHANG()
-        {
-            ketnoi = new SqlConnection(chuoiketnoi);
-
-            ketnoi.Open();
-            sql = "select* from HD_BANHANG ";
-            hienthi();
-            dataGridView1.DataSource = dt;
-            ketnoi.Close();
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == -1) { return; }
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-            sohd = row.Cells[0].Value.ToString();
-        }
-
         private void cmd_view_Click(object sender, EventArgs e)
         {
-            hienthi();
-            dataGridView1.DataSource = dt;
-           docdulieu.Close();
-            ketnoi.Close();
+            hienthiHoaDon();
 
         }
 
-        
+        private void cmd_them_Click(object sender, EventArgs e)
+        {
+            string SOHD = txt_SOHD.Text;
+            string MAHANG = txt_MAHANG.Text;
+            string NGAYTHANG = txt_NGAYTHANG.Text;
+            string MAKH = txt_MAKH.Text;
+            // check gia tri nguời dùng nhập có đúng không - ví dụ là nhập chưa đủ thông tin:
+
+            try
+            {
+
+                ketnoi = new SqlConnection(chuoiketnoi);
+                ketnoi.Open();
+                sql = @"insert into HD_BANHANG
+	        values 
+            (N'" + SOHD + "' , N'" + MAHANG + "' , '" + NGAYTHANG + "'  , N'" + MAKH + "')";
+                thuchien = new SqlCommand();
+                thuchien.Connection = ketnoi;
+                thuchien.CommandText = sql;
+                thuchien.CommandType = CommandType.Text;
+                thuchien.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi đọc dữ liệu ban hang");
+            }
+            docdulieu.Close();
+            ketnoi.Close();
+            MessageBox.Show("THÊM THÀNH CÔNG!!");
+        }
     }
-  
 }
+  
+

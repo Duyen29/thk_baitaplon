@@ -46,10 +46,10 @@
             this.cmd_xoa = new System.Windows.Forms.Button();
             this.cmd_view = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,6 +177,7 @@
             this.cmd_them.TabIndex = 0;
             this.cmd_them.Text = "THÊM";
             this.cmd_them.UseVisualStyleBackColor = false;
+            this.cmd_them.Click += new System.EventHandler(this.cmd_them_Click);
             // 
             // cmd_sua
             // 
@@ -223,20 +224,19 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "THÔNG TIN CHI TIẾT HOÁ ĐƠN";
             // 
-            // dataGridView1
+            // dgvHoaDon
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 321);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(630, 150);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvHoaDon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDon.Location = new System.Drawing.Point(43, 321);
+            this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.Size = new System.Drawing.Size(630, 150);
+            this.dgvHoaDon.TabIndex = 8;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::LIENKET_CSDL.Properties.Resources.hinh_nen_may_tinh_de_thuong_1_800x4511;
-            this.pictureBox1.Location = new System.Drawing.Point(716, 321);
+            this.pictureBox1.Image = global::LIENKET_CSDL.Properties.Resources.hinh_anh_dong_de_thuong;
+            this.pictureBox1.Location = new System.Drawing.Point(696, 321);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 147);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -250,7 +250,7 @@
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(909, 480);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvHoaDon);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmd_view);
             this.Controls.Add(this.cmd_xoa);
@@ -263,7 +263,7 @@
             this.Load += new System.EventHandler(this.hoadon_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Button cmd_xoa;
         private System.Windows.Forms.Button cmd_view;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

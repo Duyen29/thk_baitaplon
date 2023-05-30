@@ -63,6 +63,16 @@ namespace LIENKET_CSDL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hinh_anh_dong_de_thuong {
+            get {
+                object obj = ResourceManager.GetObject("hinh-anh-dong-de-thuong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hinh_nen_may_tinh_de_thuong_1_800x451 {
             get {
                 object obj = ResourceManager.GetObject("hinh-nen-may-tinh-de-thuong-1-800x451", resourceCulture);

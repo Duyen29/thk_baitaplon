@@ -33,6 +33,9 @@
             // 
             // txtLog
             // 
+            this.txtLog.BackColor = System.Drawing.Color.MistyRose;
+            this.txtLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLog.ForeColor = System.Drawing.SystemColors.Window;
             this.txtLog.Location = new System.Drawing.Point(12, 12);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
