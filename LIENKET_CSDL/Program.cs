@@ -16,7 +16,7 @@ namespace LIENKET_CSDL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new hoadon2());
+            Application.Run(new hoadon());
         }
     }
 }

@@ -43,7 +43,7 @@ namespace LIENKET_CSDL
 
                 ketnoi = new SqlConnection(chuoiketnoi);
                 ketnoi.Open();
-                sql = @"select * from HD_BANHANG";
+                sql = @"select * from DM_SANPHAM";
                 thuchien = new SqlCommand();
                 thuchien.Connection = ketnoi;
                 thuchien.CommandText = sql;
@@ -52,6 +52,7 @@ namespace LIENKET_CSDL
                 DataTable dt = new DataTable();
                 dt.Load(docdulieu);
                 dgvHoaDon.DataSource = dt;
+                dgvHoaDon.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             catch (Exception ex)
             {
@@ -69,10 +70,10 @@ namespace LIENKET_CSDL
 
         private void cmd_them_Click(object sender, EventArgs e)
         {
-            string SOHD = txt_SOHD.Text;
-            string MAHANG = txt_MAHANG.Text;
-            string NGAYTHANG = txt_NGAYTHANG.Text;
-            string MAKH = txt_MAKH.Text;
+            string MAHANG = text_MAHANG.Text;
+            string TENHANG= text_TENHANG.Text;
+            string DONVI = text_DONVI.Text;
+            
             // check gia tri nguời dùng nhập có đúng không - ví dụ là nhập chưa đủ thông tin:
 
             try
@@ -80,9 +81,9 @@ namespace LIENKET_CSDL
 
                 ketnoi = new SqlConnection(chuoiketnoi);
                 ketnoi.Open();
-                sql = @"insert into HD_BANHANG
-	        values 
-            (N'" + SOHD + "' , N'" + MAHANG + "' , '" + NGAYTHANG + "'  , N'" + MAKH + "')";
+                sql = $"INSERT INTO [dbo].[DM_SANPHAM]" +
+                    $"([MAHANG],[TENHANG],[DONVI])" +
+                    $"VALUES (N'{TENHANG}',N'{TENHANG}',N'{DONVI}')";
                 thuchien = new SqlCommand();
                 thuchien.Connection = ketnoi;
                 thuchien.CommandText = sql;
@@ -93,9 +94,58 @@ namespace LIENKET_CSDL
             {
                 MessageBox.Show(ex.Message, "Lỗi đọc dữ liệu ban hang");
             }
-            docdulieu.Close();
             ketnoi.Close();
+            hienthiHoaDon();
             MessageBox.Show("THÊM THÀNH CÔNG!!");
+        }
+
+        private void cmd_sua_Click(object sender, EventArgs e)
+        {
+
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                string MAHANGSUA = dgvHoaDon.SelectedRows[0].Cells[0].Value.ToString();
+                //  MessageBox.Show(MAHANGSua);
+                // Lấy tất cả thông tin muốn thêm
+                string MAHANG = text_MAHANG.Text;
+                string TENHANG = text_TENHANG.Text;
+                string DONVI = text_DONVI.Text;
+               
+                // check gia tri nguời dùng nhập có đúng không - ví dụ là nhập chưa đủ thông tin:
+
+                string sql = $"UPDATE [dbo].[DM_SANPHAM]" +
+                    $"SET " +
+                    $"[MAHANG] = N'{MAHANG}'," +
+                    $"[TENHANG] = N'{TENHANG}'," +
+                    $"[DONVI] = N'{DONVI}'" +
+                    $"WHERE MAHANG = N'{MAHANGSUA}' ";
+                Console.WriteLine(sql);
+                ketnoi.Open();
+                thuchien = new SqlCommand(sql, ketnoi);
+                thuchien.ExecuteNonQuery();
+
+                ketnoi.Close();
+                hienthiHoaDon();
+
+            }
+        }
+
+        private void cmd_xoa_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                string MAHANGCanXoa = dgvHoaDon.SelectedRows[0].Cells[0].Value.ToString();
+
+                ketnoi.Open();
+                string lenhxoa = "delete from DM_SANPHAM where MAHANG ='" + MAHANGCanXoa + "'";
+
+                thuchien = new SqlCommand(lenhxoa, ketnoi);
+                thuchien.ExecuteNonQuery();
+
+                ketnoi.Close();
+                hienthiHoaDon();
+                MessageBox.Show(" XOÁ THÀNH CÔNG!!");
+            }
         }
     }
 }

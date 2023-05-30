@@ -44,6 +44,7 @@ namespace LIENKET_CSDL
                 DataTable dt = new DataTable();
                 dt.Load(docdulieu);
               dgvDMKH.DataSource = dt;
+                dgvDMKH.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             catch (Exception ex)
             {
@@ -113,7 +114,7 @@ private void cmd_view_Click(object sender, EventArgs e)
             if (dgvDMKH.SelectedRows.Count > 0)
             {
                 string MAKHSUA = dgvDMKH.SelectedRows[0].Cells[0].Value.ToString();
-                //  MessageBox.Show(maNVSua);
+                //  MessageBox.Show(MAKHSua);
                 // Lấy tất cả thông tin muốn thêm
                 string MAKH = text_MAKH.Text;
                 string TENKH = text_TENKH.Text;
@@ -138,5 +139,7 @@ private void cmd_view_Click(object sender, EventArgs e)
 
             }
         }
+
+        
     }
 }
