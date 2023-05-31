@@ -75,9 +75,9 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(306, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(280, 19);
+            this.label3.Size = new System.Drawing.Size(178, 19);
             this.label3.TabIndex = 3;
-            this.label3.Text = "THÔNG TIN DANH MỤC SẢN PHẨM";
+            this.label3.Text = "THÔNG TIN HOÁ ĐƠN";
             // 
             // cmd_them
             // 
@@ -134,9 +134,9 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(233, 282);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(353, 19);
+            this.label6.Size = new System.Drawing.Size(251, 19);
             this.label6.TabIndex = 7;
-            this.label6.Text = "THÔNG TIN CHI TIẾT DANH MỤC SẢN PHẢM\r\n";
+            this.label6.Text = "THÔNG TIN CHI TIẾT HOÁ ĐƠN";
             // 
             // pictureBox1
             // 

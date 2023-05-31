@@ -138,6 +138,7 @@ namespace Bot1
                 {
                     reply = "FeedBack Giáo viên:🥲 Môn học lập trình Windows thầy Đỗ Duy Cốp. Giảng rất hay!😍😍";
                 }
+                
                 else if (messLow.StartsWith("dh "))
                 {
                     string soHD = messageText.Substring(3);
@@ -157,12 +158,17 @@ namespace Bot1
                     int nam = Convert.ToInt32(NTN.Year.ToString());
                     
                 }
+
                 
+
                 else // Nếu k phải là thằng nào đặc biệt thì => hát cho Pạn nghe
                 {
                     reply = "🤡Tôi đây: " + messageText;
                 }
-
+                if (messLow.StartsWith("duyên"))
+                {
+                    reply = "em chưa hiểu bài !😍😍";
+                }
 
                 // ----------- KẾT THÚC XỬ LÝ -----------------------------------------------------------------------
                 AddLog(reply); //show log to see

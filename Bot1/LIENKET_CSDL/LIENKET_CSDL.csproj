@@ -58,12 +58,6 @@
     <Compile Include="hoadon2.Designer.cs">
       <DependentUpon>hoadon2.cs</DependentUpon>
     </Compile>
-    <Compile Include="NCC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NCC.Designer.cs">
-      <DependentUpon>NCC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -71,9 +65,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="hoadon2.resx">
       <DependentUpon>hoadon2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NCC.resx">
-      <DependentUpon>NCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
