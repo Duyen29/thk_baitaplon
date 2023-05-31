@@ -7,6 +7,8 @@ using Telegram.Bot.Polling;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types;
 using Telegram.Bot;
+using System.Data.SqlClient;
+using System.Drawing;
 
 namespace Bot1
 {
@@ -15,8 +17,9 @@ namespace Bot1
     {
 
         public TelegramBotClient botClient;
-        
-        public long chatId = 6052997336; // Mk fix trước 1 cái chat id là tài khuản của mk! -> cái này liên quan đến việc nhúng ở bên app
+        String chuoiketnoi = @"Data Source=Admin\SQLEXPRESS;Initial Catalog=baitaplon;Integrated Security=True";
+
+        public long chatId ; // Mk fix trước 1 cái chat id là tài khuản của mk! -> cái này liên quan đến việc nhúng ở bên app
 
         int logCounter = 0;
 
@@ -137,31 +140,29 @@ namespace Bot1
                 if (messLow.StartsWith("gv"))
                 {
                     reply = "FeedBack Giáo viên:🥲 Môn học lập trình Windows thầy Đỗ Duy Cốp. Giảng rất hay!😍😍";
-                }
-                
-                else if (messLow.StartsWith("dh "))
-                {
-                    string soHD = messageText.Substring(3);
-                    
-                }
+                }  
                 else if (messLow.StartsWith("kh "))
                 {
                     string tenKH = messageText.Substring(3);
-                    
-                }
-                else if (messLow.StartsWith("sao roi"))
-                {
-                    DateTime NTN = new DateTime();
-                    NTN = DateTime.Now;
-                    int ngay = Convert.ToInt32(NTN.Day.ToString());
-                    int thang = Convert.ToInt32(NTN.Month.ToString());
-                    int nam = Convert.ToInt32(NTN.Year.ToString());
-                    
+                    string tenCanTim = "%" + tenKH.Replace(' ','%') + "%";
+                    string kq;
+                    using (SqlConnection con = new SqlConnection(chuoiketnoi))
+                    {
+                        con.Open();
+                        string tenproc = "TIM_KHACHHANG";
+                        using (SqlCommand cm = new SqlCommand(tenproc, con))
+                        {
+                            cm.Parameters.Add("@tenKH", System.Data.SqlDbType.NVarChar, 50).Value = tenCanTim;
+                            cm.CommandType = System.Data.CommandType.StoredProcedure;
+                            kq = (string)cm.ExecuteScalar();
+                        }
+                    }
+                    reply = kq;
+
+
                 }
 
-                
-
-                else // Nếu k phải là thằng nào đặc biệt thì => hát cho Pạn nghe
+                else // Nếu k ph là thằng nào đặc biệt thì => hát cho Pạn nghe
                 {
                     reply = "🤡Tôi đây: " + messageText;
                 }
