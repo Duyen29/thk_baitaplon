@@ -109,5 +109,15 @@ namespace LIENKET_CSDL.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tai_hinh_dong_de_thuong {
+            get {
+                object obj = ResourceManager.GetObject("tai-hinh-dong-de-thuong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

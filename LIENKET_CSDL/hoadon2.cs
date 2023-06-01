@@ -13,12 +13,14 @@ using System.Windows.Forms;
 namespace LIENKET_CSDL
 {
     public partial class hoadon2 : Form
+
     {
+        
         public hoadon2()
         {
             InitializeComponent();
         }
-        String chuoiketnoi = @"Data Source=Admin\SQLEXPRESS;Initial Catalog=baitaplon;Integrated Security=True";
+        String chuoiketnoi = @"Data Source=Admin\SQLEXPRESS;Initial Catalog=THIHOCKY;Integrated Security=True";
         String sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
@@ -28,6 +30,7 @@ namespace LIENKET_CSDL
         {
 
         }
+        //HIỂN THỊ VIEW
         public void hienthihoadon2()
         {
             try
@@ -54,12 +57,12 @@ namespace LIENKET_CSDL
             ketnoi.Close();
         }
 
-
+        
 private void cmd_view_Click(object sender, EventArgs e)
         {
             hienthihoadon2();
         }
-
+        //THÊM
         private void cmd_them_Click(object sender, EventArgs e)
         {
             string MAKH =text_MAKH.Text;
@@ -90,7 +93,7 @@ private void cmd_view_Click(object sender, EventArgs e)
             hienthihoadon2();
             MessageBox.Show("THÊM THÀNH CÔNG!!");
         }
-
+        //XOÁ
         private void cmd_xoa_Click(object sender, EventArgs e)
         {
             if (dgvDMKH.SelectedRows.Count > 0)
@@ -108,7 +111,7 @@ private void cmd_view_Click(object sender, EventArgs e)
                 MessageBox.Show(" XOÁ THÀNH CÔNG!!");
             }
         }
-
+        //SỬA
         private void cmd_sua_Click(object sender, EventArgs e)
         {
             if (dgvDMKH.SelectedRows.Count > 0)
@@ -139,7 +142,6 @@ private void cmd_view_Click(object sender, EventArgs e)
 
             }
         }
-
-        
+       
     }
 }

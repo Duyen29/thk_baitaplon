@@ -60,6 +60,7 @@
             this.cmd_view.TabIndex = 20;
             this.cmd_view.Text = "VIEW";
             this.cmd_view.UseVisualStyleBackColor = false;
+            this.cmd_view.Click += new System.EventHandler(this.cmd_view_Click);
             // 
             // cmd_sua
             // 
@@ -71,6 +72,7 @@
             this.cmd_sua.TabIndex = 19;
             this.cmd_sua.Text = "SỬA";
             this.cmd_sua.UseVisualStyleBackColor = false;
+            this.cmd_sua.Click += new System.EventHandler(this.cmd_sua_Click);
             // 
             // cmd_xoa
             // 
@@ -82,6 +84,7 @@
             this.cmd_xoa.TabIndex = 18;
             this.cmd_xoa.Text = "XOÁ";
             this.cmd_xoa.UseVisualStyleBackColor = false;
+            this.cmd_xoa.Click += new System.EventHandler(this.cmd_xoa_Click);
             // 
             // cmd_them
             // 
@@ -93,6 +96,7 @@
             this.cmd_them.TabIndex = 17;
             this.cmd_them.Text = "THÊM";
             this.cmd_them.UseVisualStyleBackColor = false;
+            this.cmd_them.Click += new System.EventHandler(this.cmd_them_Click);
             // 
             // dgvDMNCC
             // 
@@ -249,6 +253,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NCC";
             this.Text = "NCC";
+            this.Load += new System.EventHandler(this.NCC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDMNCC)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

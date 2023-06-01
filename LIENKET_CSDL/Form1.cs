@@ -22,7 +22,7 @@ namespace LIENKET_CSDL
             InitializeComponent();
         }
 
-        String chuoiketnoi = @"Data Source=Admin\SQLEXPRESS;Initial Catalog=baitaplon;Integrated Security=True";
+        String chuoiketnoi = @"Data Source=Admin\SQLEXPRESS;Initial Catalog=THIHOCKY;Integrated Security=True";
         String sql;
         SqlConnection ketnoi;
         SqlCommand thuchien;
@@ -147,6 +147,7 @@ namespace LIENKET_CSDL
                 MessageBox.Show(" XOÁ THÀNH CÔNG!!");
             }
         }
+      
     }
 }
   
